@@ -18,24 +18,23 @@ Frontend:
 1. Vue.js application for the user interface.
 
 3. Setup Instructions
-1. Unzip the Project
-Unzip the project folder you received via email.
+1. Clone the repository using https://github.com/PhinaG/MobizAssessment.git
 
 2. Backend Setup
 Navigate to the backend directory and follow these steps:
-cd path/to/unzipped/project/backend
+cd path
 
 Install Dependencies:
 npm install
 
 Start the Backend Server:
-npx ts-node src/index.ts
+npx ts-node path (e.g. npx ts-node employee-management-ts/src/index.ts)
 
 The backend server should now be running on http://localhost:3000.
 
 3. Frontend Setup
 Navigate to the frontend directory and follow these steps:
-cd path/to/unzipped/project/frontend
+cd path
 
 Install Dependencies (if required):
 npm install
@@ -44,7 +43,7 @@ Start the Frontend Development Server:
 npm run serve
 
 The frontend development server should now be running on http://localhost:8080 
-The deployed frontend development server should be running  on https://mobiz-assessment-q5js.vercel.app/
+The deployed frontend development server should be running  on https://mobiz-assessment-laby.vercel.app/
 
 4. Running Backend Tests
 Navigate to the backend directory and run:
