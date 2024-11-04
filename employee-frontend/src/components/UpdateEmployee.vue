@@ -21,7 +21,15 @@
       </div>
       <div>
         <label>Employment Type:</label>
-        <input type="text" v-model="employee.employmentType" />
+        
+        <select v-model="employee.employmentType" required> 
+        <option disabled value="">Select Employment Type</option> 
+        <option value="permanent">Permanent</option> 
+        <option value="freelance">Freelance</option>
+        <option value="contract">Contract</option> 
+        <option value="part-time">Part-time</option> 
+        <option value="intern">Intern</option> 
+        </select>
       </div>
       </div>
       <div class="field-container">
@@ -84,31 +92,44 @@ export default {
  .form-container { 
   display: flex; 
   flex-direction: column; 
-  align-items: center;
-  border-bottom: 2px solid #ddd; 
+  align-items: center; 
   padding: 20px; 
   border-radius: 10px; 
+  justify-content: space-between;
 } 
-
- .field-container { 
-  display: flex; 
-  justify-content: space-between; 
+.field-container { 
+  display: grid; 
+  grid-template-columns: 2fr 2fr; 
+  gap: 20px; 
+  
+  padding: 20px; 
+  border-radius: 10px;  
+} 
+.field-container label { 
+  margin-bottom: 5px; 
+  }
+.field-container input, 
+.field-container select { 
   width: 100%; 
-  margin-bottom: 10px; } 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  }
 
-
-.updateButton { 
+ .updateButton { 
   padding: 10px 20px;
   text-align: center;
   color:white;
-  background:green 
+  background:green ;
+  width : 100%;
   }
 
   .closeButton { 
   padding: 10px 20px;
   text-align: center;
   color:white;
-  background:red 
+  background:red;
+  width:100%;
   }
 
   input{
