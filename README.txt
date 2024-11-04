@@ -1,8 +1,8 @@
 Employee Management Web Portal
-Welcome to the Employee Management Web Portal. This guide will walk you through setting up and running the project locally.
+This guide will take you through setting up and running the project locally.
 
 1. Prerequisites
-Before you begin, ensure you have the following installed on your system:
+Ensure you have the following installed on your system:
 
 Node.js 
 npm (comes with Node.js)
