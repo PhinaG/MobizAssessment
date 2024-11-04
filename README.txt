@@ -21,20 +21,17 @@ Frontend:
 1. Clone the repository using https://github.com/PhinaG/MobizAssessment.git
 
 2. Backend Setup
-Navigate to the backend directory and follow these steps:
-cd path
-
-Install Dependencies:
+Install Dependencies if required:
 npm install
 
 Start the Backend Server:
-npx ts-node path (e.g. npx ts-node employee-management-ts/src/index.ts)
+npx ts-node employee-management-ts/src/index.ts
 
 The backend server should now be running on http://localhost:3000.
 
 3. Frontend Setup
 Navigate to the frontend directory and follow these steps:
-cd path
+cd employee-frontend
 
 Install Dependencies (if required):
 npm install
@@ -47,6 +44,7 @@ The deployed frontend development server should be running  on https://mobiz-ass
 
 4. Running Backend Tests
 Navigate to the backend directory and run:
+cd employee-management-ts
 npm test
 
 
