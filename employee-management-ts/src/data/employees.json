@@ -1,1 +1,56 @@
-[{"firstName":"Jessica","lastName":"Fletcher","email":"holmes@detectives.org","employmentType":"permanent","id":3,"dateJoined":"2024-11-04 10:22:31","lastUpdatedTime":"2024-11-04 10:22:31"}]
+[
+    {
+        "firstName":"Sherlock",
+        "lastName":"Holmes",
+        "email":"holmes@detectives.org",
+        "employmentType":"permanent",
+        "id":1,
+        "dateJoined":"05-06-2011",
+        "lastUpdatedTime":"2024-11-04 10:22:31"
+    },
+    {
+        "firstName":"Jane",
+        "lastName":"Marple",
+        "email":"marple@detectives.org",
+        "employmentType":"freelance",
+        "id":2,
+        "dateJoined":"14-11-2013",
+        "lastUpdatedTime":"2024-11-04 10:22:31"
+    },
+    {
+        "firstName":"Hercule",
+        "lastName":"Poirot",
+        "email":"poirot@detectives.org",
+        "employmentType":"permanent",
+        "id":3,
+        "dateJoined":"09-08-2012",
+        "lastUpdatedTime":"2024-11-04 10:22:31"
+    },
+    {
+        "firstName":"Nancy",
+        "lastName":"Drew",
+        "email":"drew@detectives.org",
+        "employmentType":"intern",
+        "id":4,
+        "dateJoined":"04-03-2024",
+        "lastUpdatedTime":"2024-11-04 10:22:31"
+    },
+    {
+        "firstName":"Jessica",
+        "lastName":"Fletcher",
+        "email":"fletcher@detectives.org",
+        "employmentType":"permfreelanceanent",
+        "id":5,
+        "dateJoined":"12-05-2018",
+        "lastUpdatedTime":"2024-11-04 10:22:31"
+    },
+    {
+        "firstName":"Frank",
+        "lastName":"Columbo",
+        "email":"columbo@detectives.org",
+        "employmentType":"permanent",
+        "id":6,
+        "dateJoined":"07-09-2016",
+        "lastUpdatedTime":"2024-11-04 10:22:31"
+    },
+]
