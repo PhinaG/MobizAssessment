@@ -11,7 +11,7 @@ app.use('/employees', employeeRoutes);
 
 interface Employee {
   id: string;
-  name: string;
+  firstName: string;
   [key: string]: any;
 }
 
@@ -21,7 +21,7 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should read all employees', async () => {
-    const mockData: Employee[] = [{ id: '1', name: 'John Doe' }];
+    const mockData: Employee[] = [{ id: '1', firstName: 'John Doe' }];
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(mockData)));
     });
@@ -32,7 +32,7 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should get an employee by ID', async () => {
-    const mockData: Employee[] = [{ id: '1', name: 'John Doe' }];
+    const mockData: Employee[] = [{ id: '1', firstName: 'John Doe' }];
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(mockData)));
     });
@@ -43,8 +43,8 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should add a new employee', async () => {
-    const initialData: Employee[] = [{ id: '1', name: 'John Doe' }];
-    const newEmployee: Employee = { id: '2', name: 'Jane Doe' };
+    const initialData: Employee[] = [{ id: '1', firstName: 'John Doe' }];
+    const newEmployee: Employee = { id: '2', firstName: 'Jane Doe' };
 
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(initialData)));
@@ -70,8 +70,8 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should update an existing employee', async () => {
-    const initialData: Employee[] = [{ id: '1', name: 'John Doe' }];
-    const updatedEmployee: Employee = { id: '1', name: 'John Smith' };
+    const initialData: Employee[] = [{ id: '1', firstName: 'John Doe' }];
+    const updatedEmployee: Employee = { id: '1', firstName: 'John Smith' };
 
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(initialData)));
@@ -96,7 +96,7 @@ describe('Employee CRUD Operations', () => {
   });
 
   it('should delete an employee', async () => {
-    const initialData: Employee[] = [{ id: '1', name: 'John Doe' }];
+    const initialData: Employee[] = [{ id: '1', firstName: 'John Doe' }];
 
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(initialData)));

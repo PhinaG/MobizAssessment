@@ -43,7 +43,8 @@ npm install
 Start the Frontend Development Server:
 npm run serve
 
-The frontend development server should now be running on http://localhost:8081 or http://localhost:8081
+The frontend development server should now be running on http://localhost:8080 
+The deployed frontend development server should be running  on https://mobiz-assessment-q5js.vercel.app/
 
 4. Running Backend Tests
 Navigate to the backend directory and run:

@@ -1,5 +1,4 @@
 // ECHO is on.
-
 import express, { Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
@@ -39,17 +38,17 @@ const currentDatetime = () =>{
     const now = new Date();
 
     const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); 
     const day = now.getDate().toString().padStart(2, '0');
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    const dateTimeString = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    const dateTimeString = `${year}-${month}-${day} ${hours}:${minutes}`;
     return dateTimeString
 }
 
-// Read employees
+// Read all employees
 router.get('/', async (req: Request, res: Response) => {
   try {
     const employees = await readFile(employeesFilePath);
@@ -59,15 +58,15 @@ router.get('/', async (req: Request, res: Response) => {
   }
 });
 
-// Get employee by ID
+// Get an employee by ID
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const {id } = req.params;
     let employees = await readFile(employeesFilePath); 
-    const employeeIndex = employees.findIndex(emp => emp.id == id);
+    const index = employees.findIndex(emp => emp.id == id);
     
-    if (employeeIndex !== -1) {
-        res.json(employees[employeeIndex]);
+    if (index !== -1) {
+        res.json(employees[index]);
     } 
     else { 
         res.status(404).send({ message: 'Employee not found' }); 
@@ -77,7 +76,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
 });
 
-// Add employee
+// Add a new employee
 router.post('/', async (req: Request, res: Response) => {
   try {
     let newEmployee = req.body;
@@ -96,19 +95,19 @@ router.post('/', async (req: Request, res: Response) => {
   }
 });
 
-// Update employee
+// Update an exisitng employee
 router.put('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     let updatedEmployee = req.body;    
     updatedEmployee.lastUpdatedTime = currentDatetime();
     let employees = await readFile(employeesFilePath);
-    const employeeIndex = employees.findIndex(emp => emp.id == id);
+    const index = employees.findIndex(emp => emp.id == id);
     
-    if (employeeIndex !== -1) {
-        employees[employeeIndex] = { ...employees[employeeIndex], ...updatedEmployee };
+    if (index !== -1) {
+        employees[index] = { ...employees[index], ...updatedEmployee };
         await writeFile(employeesFilePath, employees); 
-        res.json(employees[employeeIndex]);
+        res.json(employees[index]);
     } else {
         res.status(404).json({ message: 'Employee not found' });
     }
@@ -122,9 +121,9 @@ router.delete('/:id', async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     let employees = await readFile(employeesFilePath);
-    const employeeIndex = employees.findIndex(emp => emp.id == id);
+    const index = employees.findIndex(emp => emp.id == id);
 
-    if (employeeIndex !== -1) {
+    if (index !== -1) {
       employees = employees.filter(emp => emp.id != id);
       await writeFile(employeesFilePath, employees);
       res.sendStatus(200);
