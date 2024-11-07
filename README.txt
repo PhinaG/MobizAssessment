@@ -25,7 +25,7 @@ Install Dependencies if required:
 npm install
 
 Start the Backend Server:
-npx ts-node employee-management-ts/src/index.ts
+npm run build / npx ts-node employee-management-ts/src/index.ts
 
 The backend server should now be running on http://localhost:3000.
 
