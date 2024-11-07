@@ -27,7 +27,8 @@ npm install
 Start the Backend Server:
 npm run build / npx ts-node employee-management-ts/src/index.ts
 
-The backend server should now be running on http://localhost:3000.
+The backend server should be running locally on http://localhost:3000.
+The deplloyed backend server should be running on https://mobiz-assessment-serve-1.vercel.app.
 
 3. Frontend Setup
 Navigate to the frontend directory and follow these steps:
@@ -39,8 +40,8 @@ npm install
 Start the Frontend Development Server:
 npm run serve
 
-The frontend development server should now be running on http://localhost:8080 
-The deployed frontend development server should be running  on https://mobiz-assessment-laby.vercel.app/
+The frontend development server should be running locally on http://localhost:8080.
+The deployed frontend development server should be running  on https://mobiz-assessment-laby.vercel.app.
 
 4. Running Backend Tests
 Navigate to the backend directory and run:
