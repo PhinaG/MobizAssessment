@@ -143,13 +143,13 @@ export default {
     overflow: auto; 
     background-color: rgba(0, 0, 0, 0.4); 
     } 
-    .modal-content { 
-      background-color: #fff;
-       padding: 20px; 
-       border: 1px solid #888; 
-       width: 300px; 
-       text-align: center; 
-       border-radius: 10px;
-        } 
-    .close { position: absolute; right: 10px; top: 10px; font-size: 20px; cursor: pointer; }
+  .modal-content { 
+    background-color: #fff;
+      padding: 20px; 
+      border: 1px solid #888; 
+      width: 300px; 
+      text-align: center; 
+      border-radius: 10px;
+      } 
+  .close { position: absolute; right: 10px; top: 10px; font-size: 20px; cursor: pointer; }
 </style>

@@ -44,7 +44,8 @@ describe('Employee CRUD Operations', () => {
 
   it('should add a new employee', async () => {
     const initialData: Employee[] = [{ id: '1', firstName: 'Test Employee' }];
-    const newEmployee: Employee = { id: '2', firstName: 'Test Employee' };
+    const newEmployee: Employee = { id: '2', firstName: 'Test Employee 2' };
+   
 
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(initialData)));
@@ -62,6 +63,7 @@ describe('Employee CRUD Operations', () => {
     const initialData: Employee[] = [{ id: '1', firstName: 'Test Employee' }];
     const updatedEmployee: Employee = { id: '1', firstName: 'Test Employee 2' };
 
+
     (fs.readFile as unknown as jest.Mock).mockImplementation((path, callback) => {
       callback(null, Buffer.from(JSON.stringify(initialData)));
     });
@@ -72,7 +74,8 @@ describe('Employee CRUD Operations', () => {
 
     const res = await request(app).put('/employees/1').send(updatedEmployee);
     expect(res.status).toBe(200);
-  });
+    });
+
 
   it('should delete an employee', async () => {
     const initialData: Employee[] = [{ id: '1', firstName: 'Test Employee' }];

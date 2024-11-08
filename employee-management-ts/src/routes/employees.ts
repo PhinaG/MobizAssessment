@@ -1,12 +1,18 @@
 // ECHO is on.
 import express, { Request, Response } from 'express';
-import fs from 'fs';
+
+import {readFile, writeFile} from '../Utils/fileOperations'
 import path from 'path';
+import {v4} from 'uuid'; 
+
 
 const router = express.Router();
-const employeesFilePath = path.join(__dirname, '../data/employees.json');
 
-interface Employee {
+//const employeesFilePath = path.join(__dirname, '../data/employees.json'); //realised this is not working in deployed version as dir is read-only
+
+const employeesFilePath = path.join('/tmp', 'employees.json');
+
+export interface Employee {
   id: string;
   firstName: string;
   lastName: string;
@@ -16,23 +22,24 @@ interface Employee {
   [key: string]: any;
 }
 
-const readFile = (filePath: string): Promise<Employee[]> => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, (err, data) => {
-      if (err) reject(err);
-      resolve(JSON.parse(data.toString()));
-    });
-  });
-};
+//Move to a Utils dir
+// const readFile = (filePath: string): Promise<Employee[]> => {
+//   return new Promise((resolve, reject) => {
+//     fs.readFile(filePath, (err, data) => {
+//       if (err) reject(err);
+//       resolve(JSON.parse(data.toString()));
+//     });
+//   });
+// };
 
-const writeFile = (filePath: string, data: Employee[]): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filePath, JSON.stringify(data), (err) => {
-      if (err) reject(err);
-      resolve();
-    });
-  });
-};
+// const writeFile = (filePath: string, data: Employee[]): Promise<void> => {
+//   return new Promise((resolve, reject) => {
+//     fs.writeFile(filePath, JSON.stringify(data), (err) => {
+//       if (err) reject(err);
+//       resolve();
+//     });
+//   });
+// };
 
 const currentDatetime = () =>{
     const now = new Date();
@@ -81,7 +88,7 @@ router.post('/', async (req: Request, res: Response) => {
   try {
     let newEmployee = req.body;
     let employees = await readFile(employeesFilePath);
-    newEmployee.id = employees.length + 1; // Add an id to the new employee
+    newEmployee.id = v4(); // Add an Guid to the new employee
     
     if(newEmployee.dateJoined == null || newEmployee.dateJoined == "" || newEmployee.dateJoined == ''){
         newEmployee.dateJoined = currentDatetime();
